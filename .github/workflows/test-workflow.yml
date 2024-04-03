@@ -5,6 +5,10 @@ on:
         description: 'Input test string'
         required: true
         type: string
+      json:
+        description: 'Input test json'
+        required: true
+        type: string
 
 jobs:
   test-job:
