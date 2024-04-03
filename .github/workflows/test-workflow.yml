@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Set and mask variable
         run: |
-          cat $GITHUB_EVENT_PATH
+          #cat $GITHUB_EVENT_PATH
           JSON_TEST=${{ fromJson(inputs.json).test }}
           TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
           echo "JSON test value before mask: $JSON_TEST"
