@@ -29,7 +29,7 @@ jobs:
           echo ${{ env.JSON_VALUE }}
 
       - name: Call go action
-        uses: lkoopz/test-workflows/actions/go-action@main
+        uses: lkoopz/test-workflows/.github/actions/go-action@main
         with:
           json-value: ${{ env.JSON_VALUE }}
         
