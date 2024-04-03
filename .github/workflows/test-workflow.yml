@@ -10,8 +10,8 @@ on:
         required: true
         type: string
 
-env:
-  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+# env:
+#   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   test-job:
@@ -20,14 +20,20 @@ jobs:
       - name: Set and mask variable
         run: |
           JSON_TEST=$(jq -r '.inputs.json' $GITHUB_EVENT_PATH)
-          STRING_TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
-          echo "JSON test value before mask: $JSON_TEST"
           echo "::set-env name=JSON_TEST::$JSON_TEST"
           JSON_VALUE=$(echo "$JSON_TEST" | jq -r '.test')
-          echo $JSON_VALUE
           echo "::add-mask::$JSON_VALUE"
-          echo $JSON_VALUE
+
         # Working (new way of setting variable)
+        #   JSON_TEST=$(jq -r '.inputs.json' $GITHUB_EVENT_PATH)
+        #   STRING_TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
+        #   echo "JSON test value before mask: $JSON_TEST"
+        #   echo "::set-env name=JSON_TEST::$JSON_TEST"
+        #   JSON_VALUE=$(echo "$JSON_TEST" | jq -r '.test')
+        #   echo $JSON_VALUE
+        #   echo "::add-mask::$JSON_VALUE"
+        #   echo $JSON_VALUE
+        
 
         # Working (old way of seting variable)
         #   JSON_TEST=$(jq -r '.inputs.json' $GITHUB_EVENT_PATH)
