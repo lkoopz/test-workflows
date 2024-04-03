@@ -3,7 +3,7 @@ on:
     inputs:
       string:
         description: 'Input test string'
-        required: true
+        required: false
         type: string
       json:
         description: 'Input test json'
