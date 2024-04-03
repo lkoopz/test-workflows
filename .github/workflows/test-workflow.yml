@@ -17,7 +17,9 @@ jobs:
       - name: Set and mask variable
         run: |
           cat $GITHUB_EVENT_PATH
+          JSON_TEST=$(jq -r '.inputs.json.test' $GITHUB_EVENT_PATH)
           TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
+          echo $JSON_TEST
           echo $TEST
           echo "::add-mask::$TEST"
           echo "TEST=$TEST" >> $GITHUB_ENV
