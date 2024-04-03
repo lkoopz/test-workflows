@@ -1,6 +1,5 @@
-name: 'Setup Go and Run Commands'
-description: 'Sets up a Go environment and runs specified bash commands'
-author: 'Your Name <your.email@example.com>'
+name: 'Action to validate masked input'
+description: 'Ingests the json masked value and validates'
 inputs:
   json-value:
     description: 'Json Value'
@@ -8,11 +7,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Setup Go environment
-      uses: actions/setup-go@v5.0.0
-      with:
-        go-version: 1.22
-      
     - name: Check json value is populated
       run: |
         if [ -n ${{ inputs.json-value }} ]; then
