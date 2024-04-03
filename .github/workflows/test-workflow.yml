@@ -9,12 +9,12 @@ on:
 jobs:
   test-job:
     runs-on: ubuntu-latest
-    env:
-      test: ${{ fromJson(inputs.test-json).test }}
     steps:
       - name: Set and mask variable
         run: |
-          echo "::add-mask::${{ env.test }}"
+          TEST=$(jq -r '.inputs.test-json' $GITHUB_EVENT_PATH)
+          echo "::add-mask::$TEST"
+          echo "TEST=$TEST" >> $GITHUB_ENV
 
 #  set the input as a var using fromjsonloads syntax
 #  mask the var created
