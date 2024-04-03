@@ -19,9 +19,11 @@ jobs:
           cat $GITHUB_EVENT_PATH
           JSON_TEST=${{ fromJson(inputs.json).test }}
           TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
-          echo "JSON TEST VALUE IS: $JSON_TEST"
-          echo "TEST VALUE IS: $TEST"
+          echo "JSON test value before mask: $JSON_TEST"
+          echo "Test value before mask: $TEST"
+          echo "::add-mask::$JSON_TEST"
           echo "::add-mask::$TEST"
+          echo "TEST=$JSON_TEST" >> $GITHUB_ENV
           echo "TEST=$TEST" >> $GITHUB_ENV
 
 #  set the input as a var using fromjsonloads syntax
