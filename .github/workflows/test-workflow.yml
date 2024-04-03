@@ -10,8 +10,8 @@ on:
         required: true
         type: string
 
-# env:
-#   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   test-job:
