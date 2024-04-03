@@ -1,8 +1,8 @@
 on:
   workflow_dispatch:
     inputs:
-        test-json:
-          description: 'Input test joson'
+        test:
+          description: 'Input test string'
           required: true
           type: string
 
@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Set and mask variable
         run: |
-          TEST=$(jq -r '.inputs.test-json' $GITHUB_EVENT_PATH)
+          TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
           echo "::add-mask::$TEST"
           echo "TEST=$TEST" >> $GITHUB_ENV
 
