@@ -24,9 +24,11 @@ jobs:
           TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
           echo "JSON test value before mask: $JSON_TEST"
           echo "::set-env name=JSON_TEST::$JSON_TEST"
-          echo "$JSON_TEST"
           JSON_VALUE=$(echo "$JSON_TEST" | jq -r '.test')
           echo $JSON_VALUE
+          echo "::add-mask::$JSON_VALUE"
+          echo $JSON_VALUE
+
 
 
 
