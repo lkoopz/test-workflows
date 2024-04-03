@@ -25,8 +25,8 @@ runs:
     - name: Check json value is correct
       run: |
         if [ ${{ inputs.json-value }} == "jsonValue" ]; then
-          echo "Success - Input matches jsonValue"
+          echo "Success - Input matches json value"
         else
-          echo "Failure - Input doesn't match jsonValue"
+          echo "Failure - Input doesn't match json value"
         fi
       shell: bash
