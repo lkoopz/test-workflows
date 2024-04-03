@@ -9,11 +9,12 @@ on:
 jobs:
   test-job:
     runs-on: ubuntu-latest
+    env:
+      test: ${{ fromJson(inputs.test-json).test }}
     steps:
       - name: Set and mask variable
         run: |
-          echo "ENV_VAR=${{ fromJson(inputs.test-json).test }}" >> $GITHUB_ENV
-          echo "::add-mask::${{ env.ENV_VAR }}"
+          echo "::add-mask::${{ env.test }}"
 
 #  set the input as a var using fromjsonloads syntax
 #  mask the var created
@@ -21,3 +22,4 @@ jobs:
 #  have the action
 #    setup go
 #    run a go script using the masked var
+#   echo "ENV_VAR=${{ fromJson(inputs.test-json).test }}" >> $GITHUB_ENV
