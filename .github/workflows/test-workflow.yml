@@ -60,4 +60,3 @@ jobs:
 #  have the action
 #    setup go
 #    run a go script using the masked var
-#   echo "ENV_VAR=${{ fromJson(inputs.test-json).test }}" >> $GITHUB_ENV
