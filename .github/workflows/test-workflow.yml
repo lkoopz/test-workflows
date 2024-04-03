@@ -19,28 +19,27 @@ jobs:
     steps:
       - name: Set and mask variable
         run: |
-          #cat $GITHUB_EVENT_PATH
           JSON_TEST=$(jq -r '.inputs.json' $GITHUB_EVENT_PATH)
           STRING_TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
           echo "JSON test value before mask: $JSON_TEST"
-          echo "JSON_TEST=$JSON_TEST" >> $GITHUB_ENV
+          echo "::set-env name=JSON_TEST::$JSON_TEST"
           JSON_VALUE=$(echo "$JSON_TEST" | jq -r '.test')
           echo $JSON_VALUE
           echo "::add-mask::$JSON_VALUE"
           echo $JSON_VALUE
+        # Working (new way of setting variable)
 
-
-
-        # Working
-        #   echo "::set-env name=JSON_TEST::$JSON_TEST"
+        # Working (old way of seting variable)
+        #   JSON_TEST=$(jq -r '.inputs.json' $GITHUB_EVENT_PATH)
+        #   STRING_TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
+        #   echo "JSON test value before mask: $JSON_TEST"
+        #   echo "JSON_TEST=$JSON_TEST" >> $GITHUB_ENV
         #   JSON_VALUE=$(echo "$JSON_TEST" | jq -r '.test')
         #   echo $JSON_VALUE
         #   echo "::add-mask::$JSON_VALUE"
         #   echo $JSON_VALUE
 
-
-
-
+        # old commands
         #   echo "${{ env.JSON_TEST }}"
         #   echo "JSON_TEST=$JSON_TEST" >> $GITHUB_ENV
         #   echo "Test value before mask: $TEST"
