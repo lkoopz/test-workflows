@@ -37,23 +37,6 @@ jobs:
         #   echo "::add-mask::$JSON_VALUE"
         #   echo $JSON_VALUE
 
-        # old commands
-        #   echo "${{ env.JSON_TEST }}"
-        #   echo "JSON_TEST=$JSON_TEST" >> $GITHUB_ENV
-        #   echo "Test value before mask: $TEST"
-        #   echo "::add-mask::$JSON_TEST"
-        #   echo "::add-mask::$TEST"
-        #   echo "JSON test value after mask: $JSON_TEST"
-        #   echo "Test value after mask: $TEST"
-        #   echo "TEST=$TEST" >> $GITHUB_ENV
-
-        #   JSON_VALUE=${{ fromJson(env.JSON_TEST).test }}
-        #   echo $JSON_VALUE
-        #   echo "JSON_VALUE=${{ fromJson(env.JSON_TEST).test }}" >> $GITHUB_ENV
-        #   echo "${{ env.JSON_TEST }}"
-        #   echo "${{ env.TEST }}"
-        #   echo "${{ env.JSON_VALUE }}"
-
 #  set the input as a var using fromjsonloads syntax
 #  mask the var created
 #  call an action passing the masked var
