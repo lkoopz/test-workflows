@@ -12,6 +12,7 @@ jobs:
     steps:
       - name: Set and mask variable
         run: |
+          echo $GITHUB_EVENT_PATH
           TEST=$(jq -r '.inputs.test' $GITHUB_EVENT_PATH)
           echo $TEST
           echo "::add-mask::$TEST"
