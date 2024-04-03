@@ -2,8 +2,8 @@ name: 'Setup Go and Run Commands'
 description: 'Sets up a Go environment and runs specified bash commands'
 author: 'Your Name <your.email@example.com>'
 inputs:
-  commands:
-    description: 'Bash commands to run'
+  json-value:
+    description: 'Json Value'
     required: true
 runs:
   using: 'composite'
@@ -13,5 +13,9 @@ runs:
       
     - name: Run Custom Commands
       run: |
-      
+        if [ -z ${{ inputs.json-value }} ]; then
+          echo "Json value is populated"
+        else
+          echo "Json value is empty"
+        fi
       shell: bash

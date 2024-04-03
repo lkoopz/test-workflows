@@ -28,10 +28,10 @@ jobs:
           echo "::set-env name=JSON_VALUE::$JSON_VALUE"
           echo ${{ env.JSON_VALUE }}
 
-    #   - name: Call go action
-    #     uses: lkoopz/test-workflows@main
-    #     with:
-    #       json-value: ${{ env.JSON_VALUE }}
+      - name: Call go action
+        uses: lkoopz/test-workflows@main
+        with:
+          json-value: ${{ env.JSON_VALUE }}
         
 
 
