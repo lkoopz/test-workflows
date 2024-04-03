@@ -1,3 +1,10 @@
+name: Ingest JSON input and mask
+# This workflow is to ingest a json input and mask the value 
+# before being used in an action to validate the contents.
+
+# test.json in the repo contains the json I was passing into
+# the workflow run as I was testing.
+
 on:
   workflow_dispatch:
     inputs:
@@ -9,9 +16,6 @@ on:
         description: 'Input test json'
         required: true
         type: string
-
-# env:
-#   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   test-job:
@@ -30,10 +34,3 @@ jobs:
         uses: lkoopz/test-workflows/.github/actions/validate-action@main
         with:
           json-value: ${{ env.JSON_VALUE }}
-
-
-# TO DO
-#  call an action passing the masked var
-#  have the action
-#    setup go
-#    run a go script using the masked var
