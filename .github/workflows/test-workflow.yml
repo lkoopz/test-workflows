@@ -30,8 +30,6 @@ jobs:
         uses: lkoopz/test-workflows/.github/actions/go-action@main
         with:
           json-value: ${{ env.JSON_VALUE }}
-        
-
 
 
 # TO DO

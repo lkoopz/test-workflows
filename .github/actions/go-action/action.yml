@@ -13,11 +13,20 @@ runs:
       with:
         go-version: 1.22
       
-    - name: Run Custom Commands
+    - name: Check json value is populated
       run: |
         if [ -n ${{ inputs.json-value }} ]; then
           echo "Json value is populated"
         else
           echo "Json value is empty"
+        fi
+      shell: bash
+
+    - name: Check json value is correct
+      run: |
+        if [ ${{ inputs.json-value }} == "jsonValue" ]; then
+          echo "Success - Input matches jsonValue"
+        else
+          echo "Failure - Input doesn't match jsonValue"
         fi
       shell: bash
