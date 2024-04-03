@@ -1,0 +1,17 @@
+name: 'Setup Go and Run Commands'
+description: 'Sets up a Go environment and runs specified bash commands'
+author: 'Your Name <your.email@example.com>'
+inputs:
+  commands:
+    description: 'Bash commands to run'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Setup Go environment
+      uses: actions/setup-go@v5.0.0
+      
+    - name: Run Custom Commands
+      run: |
+      
+      shell: bash
