@@ -23,6 +23,8 @@ jobs:
           echo "Test value before mask: $TEST"
           echo "::add-mask::$JSON_TEST"
           echo "::add-mask::$TEST"
+          echo "JSON test value after mask: $JSON_TEST"
+          echo "Test value after mask: $TEST"
           echo "TEST=$JSON_TEST" >> $GITHUB_ENV
           echo "TEST=$TEST" >> $GITHUB_ENV
 
