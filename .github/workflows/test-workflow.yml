@@ -27,8 +27,8 @@ jobs:
           echo "Test value after mask: $TEST"
           echo "JSON_TEST=$JSON_TEST" >> $GITHUB_ENV
           echo "TEST=$TEST" >> $GITHUB_ENV
-          JSON_VALUE=${{ fromJson(env.JSON_TEST).test }}
-          echo $JSON_VALUE
+        #   JSON_VALUE=${{ fromJson(env.JSON_TEST).test }}
+        #   echo $JSON_VALUE
         #   echo "JSON_VALUE=${{ fromJson(env.JSON_TEST).test }}" >> $GITHUB_ENV
         #   echo "${{ env.JSON_TEST }}"
         #   echo "${{ env.TEST }}"
