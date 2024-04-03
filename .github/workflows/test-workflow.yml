@@ -1,10 +1,10 @@
 on:
   workflow_dispatch:
     inputs:
-        test:
-          description: 'Input test string'
-          required: true
-          type: string
+      test:
+        description: 'Input test string'
+        required: true
+        type: string
 
 jobs:
   test-job:
