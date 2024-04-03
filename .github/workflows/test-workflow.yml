@@ -26,8 +26,8 @@ jobs:
           echo "Json value after adding mask: $JSON_VALUE"
           echo "JSON_VALUE=$JSON_VALUE" >> $GITHUB_ENV
 
-      - name: Call go action
-        uses: lkoopz/test-workflows/.github/actions/go-action@main
+      - name: Call validate action
+        uses: lkoopz/test-workflows/.github/actions/validate-action@main
         with:
           json-value: ${{ env.JSON_VALUE }}
 
