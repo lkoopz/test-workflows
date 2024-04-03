@@ -25,7 +25,7 @@ jobs:
           echo "JSON test value before mask: $JSON_TEST"
           echo "::set-env name=JSON_TEST::$JSON_TEST"
           echo "$JSON_TEST"
-          JSON_VALUE=${{ fromJson(env.JSON_TEST).test }}
+          JSON_VALUE=$(echo "$JSON_TEST" | jq -r '.test')
           echo $JSON_VALUE
 
 
