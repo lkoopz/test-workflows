@@ -25,6 +25,7 @@ jobs:
           echo "Json value before adding mask: $JSON_VALUE"
           echo "::add-mask::$JSON_VALUE"
           echo "Json value after adding mask: $JSON_VALUE"
+          echo "::set-env name=JSON_VALUE::$JSON_VALUE"
           echo ${{ env.JSON_VALUE }}
 
     #   - name: Call go action
