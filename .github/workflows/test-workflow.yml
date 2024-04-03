@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+    inputs:
+        test-json:
+          description: 'Input test joson'
+          required: true
+          type: string
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set and mask variable
+        run: |
+          echo "ENV_VAR=${{ fromJson(inputs.test-json).test }}" >> $GITHUB_ENV
+          echo "::add-mask::${{ env.ENV_VAR }}"
+
+#  set the input as a var using fromjsonloads syntax
+#  mask the var created
+#  call an action passing the masked var
+#  have the action
+#    setup go
+#    run a go script using the masked var
