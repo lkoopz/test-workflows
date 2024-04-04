@@ -10,6 +10,7 @@ jobs:
       - id: generate-output
         name: Generate output
         run: |
+          cat $GITHUB_EVENT_PATH
           echo "TEST_OUTPUT=$(cat nofile.txt; exit 254 2>&1)" >> $GITHUB_OUTPUT
 
       - name: Check output from previous step
