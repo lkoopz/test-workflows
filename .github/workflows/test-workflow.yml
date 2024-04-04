@@ -1,9 +1,4 @@
 name: Test Workflow
-# This workflow is to ingest a json input and mask the value 
-# before being used in an action to validate the contents.
-
-# test.json in the repo contains the json I was passing into
-# the workflow run as I was testing.
 
 on:
   workflow_dispatch:
