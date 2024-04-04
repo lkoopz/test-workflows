@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Set and mask variable
         run: |
+          JSON_FULL_PATH=$(jq -r '.inputs.json.test' $GITHUB_EVENT_PATH)
+          echo "Json full path: $JSON_FULL_PATH"
           JSON_TEST=$(jq -r '.inputs.json' $GITHUB_EVENT_PATH)
           JSON_VALUE=$(echo "$JSON_TEST" | jq -r '.test')
           echo "Json value before adding mask: $JSON_VALUE"
