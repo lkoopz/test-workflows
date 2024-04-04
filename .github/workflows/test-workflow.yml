@@ -10,8 +10,8 @@ jobs:
       - id: generate-output
         name: Generate output
         run: |
-          OUTPUT=$(cat nofile.txt; exit 254 2>&1) || true
-          echo ::set-output name=TEST_OUTPUT::$OUTPUT
+          OUTPUT=$(cat nofile.txt 2>&1) || true
+          echo "TEST_OUTPUT=$OUTPUT" >> $GITHUB_ENV
 
       - name: Check output from previous step
         run: |
