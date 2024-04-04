@@ -1,0 +1,38 @@
+name: Ingest JSON input and mask
+# This workflow is to ingest a json input and mask the value 
+# before being used in an action to validate the contents.
+
+# test.json in the repo contains the json I was passing into
+# the workflow run as I was testing.
+
+on:
+  workflow_dispatch:
+    inputs:
+      string:
+        description: 'Input test string'
+        required: false
+        type: string
+      json:
+        description: 'Input test json'
+        required: true
+        type: string
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set and mask variable
+        run: |
+          JSON_FULL_PATH=$(jq -r '.inputs.json.test' $GITHUB_EVENT_PATH)
+          echo "Json full path: $JSON_FULL_PATH"
+          JSON_TEST=$(jq -r '.inputs.json' $GITHUB_EVENT_PATH)
+          JSON_VALUE=$(echo "$JSON_TEST" | jq -r '.test')
+          echo "Json value before adding mask: $JSON_VALUE"
+          echo "::add-mask::$JSON_VALUE"
+          echo "Json value after adding mask: $JSON_VALUE"
+          echo "JSON_VALUE=$JSON_VALUE" >> $GITHUB_ENV
+
+      - name: Call validate action
+        uses: lkoopz/test-workflows/.github/actions/validate-action@main
+        with:
+          json-value: ${{ env.JSON_VALUE }}
