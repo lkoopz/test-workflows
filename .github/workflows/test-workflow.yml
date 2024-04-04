@@ -19,4 +19,4 @@ jobs:
 
       - name: Check output from previous step
         run: |
-          echo "{{ steps.generate-output.outputs.TEST_OUTPUT }}"
+          echo "${{ steps.generate-output.outputs.TEST_OUTPUT }}"
