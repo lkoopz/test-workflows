@@ -15,7 +15,7 @@ jobs:
       - id: generate-output
         name: Generate output
         run: |
-          echo "TEST_OUTPUT=$(cat nofile.txt)" >> $GITHUB_OUTPUT
+          echo "TEST_OUTPUT=$(cat nofile.txt 2>&1)" >> $GITHUB_OUTPUT
 
       - name: Check output from previous step
         run: |
