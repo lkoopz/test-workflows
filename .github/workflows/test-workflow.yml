@@ -1,4 +1,4 @@
-name: Ingest JSON input and mask
+name: Test Workflow
 # This workflow is to ingest a json input and mask the value 
 # before being used in an action to validate the contents.
 
