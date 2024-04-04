@@ -11,7 +11,7 @@ jobs:
         name: Generate output
         run: |
           OUTPUT=$(cat nofile.txt 2>&1) || true
-          echo "TEST_OUTPUT=$OUTPUT" >> $GITHUB_ENV
+          echo "TEST_OUTPUT=$OUTPUT" >> $GITHUB_OUTPUT
 
       - name: Check output from previous step
         run: |
