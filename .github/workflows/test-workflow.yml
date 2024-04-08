@@ -11,10 +11,10 @@ jobs:
         name: Generate output
         run: |
           cat $GITHUB_EVENT_PATH
-          OUTPUT=$(cat nofile.txt 2>&1) || true
-          echo "TEST_OUTPUT=$OUTPUT" >> $GITHUB_OUTPUT
+      #     OUTPUT=$(cat nofile.txt 2>&1) || true
+      #     echo "TEST_OUTPUT=$OUTPUT" >> $GITHUB_OUTPUT
 
-      - name: Check output from previous step
-        run: |
-          NEW_VAR=${{ steps.generate-output.outputs.TEST_OUTPUT }}
-          echo "${{ steps.generate-output.outputs.TEST_OUTPUT }}"
+      # - name: Check output from previous step
+      #   run: |
+      #     NEW_VAR=${{ steps.generate-output.outputs.TEST_OUTPUT }}
+      #     echo "${{ steps.generate-output.outputs.TEST_OUTPUT }}"
