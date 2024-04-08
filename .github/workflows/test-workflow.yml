@@ -11,6 +11,7 @@ jobs:
         name: Generate output
         run: |
           cat $GITHUB_EVENT_PATH
+          gh run --repo ${{ github.repository }} view ${{ github.run_id }} --json jobs --jq '.jobs[]'
       #     OUTPUT=$(cat nofile.txt 2>&1) || true
       #     echo "TEST_OUTPUT=$OUTPUT" >> $GITHUB_OUTPUT
 
