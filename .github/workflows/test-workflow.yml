@@ -10,6 +10,7 @@ jobs:
       - id: generate-output
         name: Generate output
         run: |
+          cat $GITHUB_EVENT_PATH
           OUTPUT=$(cat nofile.txt 2>&1) || true
           echo "TEST_OUTPUT=$OUTPUT" >> $GITHUB_OUTPUT
 
