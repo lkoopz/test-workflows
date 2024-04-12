@@ -1,0 +1,14 @@
+name: 'Action to test if on composite run step'
+description: 'Ingests the json masked value and validates'
+inputs:
+  test-value:
+    description: "Test value"
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Check json value is correct
+      if: ${{ inputs.test-value == 'yes' }}
+      run: |
+        echo "Running step so test-value equals yes"
+      shell: bash

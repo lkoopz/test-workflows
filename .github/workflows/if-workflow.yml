@@ -1,0 +1,18 @@
+name: Test Workflow
+
+on:
+  workflow_dispatch:
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  TEST_VALUE: "yes"
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call validate action
+        uses: lkoopz/test-workflows/.github/actions/if-action@main
+        with:
+          test-value: ${{ env.TEST_VALUE }}
+
