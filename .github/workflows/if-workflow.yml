@@ -5,13 +5,13 @@ on:
 
 env:
   GH_TOKEN: ${{ github.token }}
-  TEST_VALUE: "yes"
+  TEST_VALUE: "no"
 
 jobs:
   test-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Call validate action
+      - name: Call if action
         uses: lkoopz/test-workflows/.github/actions/if-action@main
         with:
           test-value: ${{ env.TEST_VALUE }}
